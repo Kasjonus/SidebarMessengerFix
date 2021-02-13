@@ -1,0 +1,25 @@
+{
+	"name": "Sidebar Messsenger Fix",
+	"version": "0.1.0",
+	"manifest_version": 2,
+	"description": "Extension to improve the appearance of the Opera sidebar Facebook Messenger",
+	"developer": {
+		"name": "Kasjonus",
+		"url": "https://github.com/kasjonus"
+	},
+	"icons": {
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+	},
+	"permissions": ["*://www.messenger.com/*", "storage"],
+	"content_scripts": [
+		{
+			"matches": ["*://www.messenger.com/*"],
+			"run_at": "document_end",
+			"js": ["index.js"],
+			"all_frames": true
+		}
+	],
+	"web_accessible_resources": ["index.js", "css/DefaultFix.css", "css/DarkSkin.css"]
+}
