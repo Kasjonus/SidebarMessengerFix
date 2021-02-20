@@ -3,7 +3,7 @@
 Extension to improve the appearance of the sidebar Facebook Messenger™
 
 ## How to Use
-1. Install the Extension on Opera
+1. Install the Extension on Opera addons (https://addons.opera.com/pl/extensions/details/fix-for-sidebar-facebook-messsengertm/)
 2. Open or refresh http://www.messenger.com page
 3. That's it!
 
