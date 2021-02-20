@@ -12,7 +12,7 @@
 		"48": "icons/icon48.png",
 		"128": "icons/icon128.png"
 	},
-	"permissions": ["*://www.messenger.com/*", "storage"],
+	"permissions": ["*://www.messenger.com/*"],
 	"content_scripts": [
 		{
 			"matches": ["*://www.messenger.com/*"],
