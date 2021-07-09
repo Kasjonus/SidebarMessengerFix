@@ -21,6 +21,7 @@ Extension to improve the appearance of the sidebar Facebook Messenger™
 
 ## Changelog
  - 0.1.0 - First version
+ - 0.1.1 - Update default css file
 
 
 ## Privacy policy
