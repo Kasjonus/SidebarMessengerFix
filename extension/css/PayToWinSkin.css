@@ -118,7 +118,7 @@
     --disabled-button-text: rgba(255, 255, 255, 0.3);
     --disabled-icon: rgba(255, 255, 255, 0.3);
     --disabled-text: rgba(255, 255, 255, 0.3);
-    --divider: #3E4042;
+    --divider: #deb768;
     --event-date: #F3425F;
     --filter-accent: invert(40%) sepia(52%) saturate(200%) saturate(200%) saturate(200%) saturate(189%) hue-rotate(191deg) brightness(103%) contrast(102%);
     --filter-always-white: invert(100%);
@@ -132,7 +132,7 @@
     --filter-negative: invert(25%) sepia(33%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(110%) hue-rotate(345deg) brightness(132%) contrast(96%);
     --glimmer-spinner-icon: white;
     --hero-banner-background: #E85D07;
-    --hosted-view-selected-state: rgba(45, 136, 255, 0.1);
+    --hosted-view-selected-state: rgba(161, 141, 115, 0.1);
     --highlight-bg: rgba(24, 119, 242, .31);
     --hover-overlay: rgba(255, 255, 255, 0.1);
     --media-hover: rgba(68, 73, 80, 0.15);
@@ -143,7 +143,7 @@
     --messenger-reply-background: #18191A;
     --overlay-alpha-80: rgba(11, 11, 11, 0.8);
     --overlay-on-media: rgba(0, 0, 0, 0.6);
-    --nav-bar-background: #23201a;
+    --nav-bar-background: #181511;
     --nav-bar-background-gradient: linear-gradient(to top, #242526, rgba(36,37,38,.9), rgba(36,37,38,.7), rgba(36,37,38,.4), rgba(36,37,38,0));
     --nav-bar-background-gradient-wash: linear-gradient(to top, #18191A, rgba(24,25,26,.9), rgba(24,25,26,.7), rgba(24,25,26,.4), rgba(24,25,26,0));
     --negative: hsl(350, 87%, 55%);
