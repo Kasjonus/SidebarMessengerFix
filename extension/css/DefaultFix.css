@@ -8,8 +8,6 @@
 }
 /* - - - */
 
-
-
 /* Better scrollbar */
 ._9dls {
 	overflow-y: auto !important;
@@ -44,8 +42,6 @@
 }
 /* - - - */
 
-
-
 /* Fix textbox glitches */
 .hedjyaoh {
 	transform: none !important;
@@ -61,12 +57,23 @@
 .lexh0w6q {
 	margin-right: 0 !important;
 }
+.thccjwpm {
+	width: 100%;
+}
 /* - - - */
-
-
 
 /* Hide/Show users freinds */
 div[role="navigation"] {
 	transition: width 0.5s;
+}
+.zeroWidth {
+	width: 0px !important;
+}
+/* - - - */
+
+/* Search result panel */
+.j34wkznp.qp9yad78.pmk7jnqg.kr520xx4[style="transform: translate(0px, 56px); width: 108px;"] {
+	width: 100% !important;
+	max-width: 360px;
 }
 /* - - - */

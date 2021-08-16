@@ -35,10 +35,10 @@ document.addEventListener("readystatechange", () => {
 		let leftPanelState = 1;
 		document.addEventListener("mousemove", (e) => {
 			if (e.clientX < 10 && leftPanelState === 0) {
-				document.querySelector(`div[role="navigation"]`).style.width = "88px";
+				document.querySelector(`div[role="navigation"]`).classList.remove("zeroWidth");
 				leftPanelState = 1;
-			} else if (e.clientX > 88 && leftPanelState === 1) {
-				document.querySelector(`div[role="navigation"]`).style.width = 0;
+			} else if (window.innerWidth < 900 && e.clientX > 122 && leftPanelState === 1) {
+				document.querySelector(`div[role="navigation"]`).classList.add("zeroWidth");
 				leftPanelState = 0;
 			}
 		});
