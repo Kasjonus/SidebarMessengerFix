@@ -1,4 +1,38 @@
-var darkSkinLoaded = false;
+document.addEventListener("readystatechange", () => {
+	if (document.readyState === "interactive") {
+		document.body.style.backgroundColor = "#242526";
+		loadCSS("css/DefaultFix");
+
+		chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
+			response.theme === "dark" && loadCSS("css/DarkSkin");
+		});
+
+		var checkExist = setInterval(function () {
+			if (document.querySelectorAll(".hybvsw6c > .rj1gh0hx").length) {
+				document.querySelector(".hybvsw6c > .rj1gh0hx").classList.add("switchTheme");
+				document.querySelector(".switchTheme").innerHTML = `
+				<i
+					data-visualcompletion="css-img"
+					class="hu5pjgll lzf7d6o1"
+					style="
+						background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/oq_FJcM-f8I.png');
+						background-position: 0px -977px;
+						background-size: auto;
+						width: 20px;
+						height: 20px;
+						background-repeat: no-repeat;
+						display: inline-block;
+					"
+				></i>
+				`;
+				document.querySelector(".switchTheme").addEventListener("click", () => {
+					switchTheme();
+				});
+				clearInterval(checkExist);
+			}
+		}, 100);
+	}
+});
 
 function loadCSS(file) {
 	var link = document.createElement("link");
@@ -14,19 +48,14 @@ function unloadCSS(file) {
 	cssNode && cssNode.parentNode.removeChild(cssNode);
 }
 
-function checkTheme(lightTheme) {
-	if (!lightTheme && !darkSkinLoaded) {
-		loadCSS("css/DarkSkin");
-		darkSkinLoaded = true;
-	} else if (lightTheme && darkSkinLoaded) {
-		unloadCSS("css/DarkSkin");
-		darkSkinLoaded = false;
-	}
+function switchTheme() {
+	chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
+		if (response.theme === "dark") {
+			unloadCSS("css/DarkSkin");
+		} else {
+			loadCSS("css/DarkSkin");
+		}
+
+		chrome.runtime.sendMessage({ mode: "saveTheme", theme: response.theme === "dark" ? "light" : "dark" });
+	});
 }
-
-loadCSS("css/DefaultFix");
-checkTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-	checkTheme(event.matches);
-});
