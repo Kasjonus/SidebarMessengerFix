@@ -31,6 +31,17 @@ document.addEventListener("readystatechange", () => {
 				clearInterval(checkExist);
 			}
 		}, 100);
+
+		let leftPanelState = 1;
+		document.addEventListener("mousemove", (e) => {
+			if (e.clientX < 10 && leftPanelState === 0) {
+				document.querySelector(`div[role="navigation"]`).style.width = "88px";
+				leftPanelState = 1;
+			} else if (e.clientX > 88 && leftPanelState === 1) {
+				document.querySelector(`div[role="navigation"]`).style.width = 0;
+				leftPanelState = 0;
+			}
+		});
 	}
 });
 

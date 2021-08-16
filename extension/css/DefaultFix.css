@@ -19,14 +19,17 @@
 	width: 16px;
 }
 
-.ns9esd28.tqkqlopc.du4w35lb, .f4tghd1a > div > div {
+.ns9esd28.tqkqlopc.du4w35lb,
+.f4tghd1a > div > div {
 	color: var(--placeholder-text);
 }
-.stjgntxs > .agkhgkm8, .f4tghd1a {
+.stjgntxs > .agkhgkm8,
+.f4tghd1a {
 	transition: color 0.3s ease;
 	color: transparent;
 }
-.stjgntxs > .agkhgkm8:hover, .f4tghd1a:hover {
+.stjgntxs > .agkhgkm8:hover,
+.f4tghd1a:hover {
 	color: var(--scroll-thumb);
 }
 ::-webkit-scrollbar-thumb {
@@ -54,5 +57,16 @@
 }
 .orhb3f3m {
 	transition: margin-left 0.1s ease-in-out;
+}
+.lexh0w6q {
+	margin-right: 0 !important;
+}
+/* - - - */
+
+
+
+/* Hide/Show users freinds */
+div[role="navigation"] {
+	transition: width 0.5s;
 }
 /* - - - */
