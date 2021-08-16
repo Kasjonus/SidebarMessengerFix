@@ -4,7 +4,7 @@ document.addEventListener("readystatechange", () => {
 		loadCSS("css/DefaultFix");
 
 		chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
-			response.theme === "dark" && loadCSS("css/DarkSkin");
+			response.theme === "dark" && loadCSS("css/PayToWinSkin");
 		});
 
 		var checkExist = setInterval(function () {
@@ -51,9 +51,9 @@ function unloadCSS(file) {
 function switchTheme() {
 	chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
 		if (response.theme === "dark") {
-			unloadCSS("css/DarkSkin");
+			unloadCSS("css/PayToWinSkin");
 		} else {
-			loadCSS("css/DarkSkin");
+			loadCSS("css/PayToWinSkin");
 		}
 
 		chrome.runtime.sendMessage({ mode: "saveTheme", theme: response.theme === "dark" ? "light" : "dark" });

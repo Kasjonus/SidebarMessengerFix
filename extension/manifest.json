@@ -1,18 +1,22 @@
 {
 	"name": "Fix for sidebar Facebook Messsenger™",
-	"version": "0.2.0",
-	"manifest_version": 2,
 	"description": "Extension to improve the appearance of the sidebar Facebook Messenger™",
 	"developer": {
 		"name": "Kasjonus",
 		"url": "https://github.com/kasjonus"
 	},
+	"version": "0.2.0",
+	"manifest_version": 2,
 	"icons": {
 		"16": "icons/icon16.png",
 		"48": "icons/icon48.png",
 		"128": "icons/icon128.png"
 	},
-	"permissions": ["*://www.messenger.com/*"],
+	"permissions": ["*://www.messenger.com/*", "storage"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
 	"content_scripts": [
 		{
 			"matches": ["*://www.messenger.com/*"],
@@ -21,5 +25,5 @@
 			"all_frames": true
 		}
 	],
-	"web_accessible_resources": ["index.js", "css/DefaultFix.css", "css/DarkSkin.css"]
+	"web_accessible_resources": ["index.js", "background.js", "css/DefaultFix.css", "css/DarkSkin.css", "css/PayToWinSkin.css"]
 }
