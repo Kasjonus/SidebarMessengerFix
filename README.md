@@ -22,7 +22,8 @@ Extension to improve the appearance of the sidebar Facebook Messenger™
 ## Changelog
  - 0.1.0 - First version
  - 0.1.1 - Update default css file
-
+ - 0.2.0 - Add full dark mode support
+ - 0.3.0 - Add scrollbar style
 
 ## Privacy policy
 "Fix for sidebar Facebook Messsenger™" does not share any user data or device information with anyone. It uses a simple script that selects a style based on the options for Force Dark Pages

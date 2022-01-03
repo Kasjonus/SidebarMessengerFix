@@ -1,6 +1,76 @@
+/* Hide ad in left bottom corner and add switch theme button */
+.switchTheme {
+	cursor: pointer;
+}
+
+.switchTheme:hover {
+	background-color: var(--hover-overlay);
+}
+/* - - - */
+
+/* Better scrollbar */
+._9dls {
+	overflow-y: auto !important;
+}
+
 ::-webkit-scrollbar {
-    display: none!important;
+	width: 16px;
 }
-.rq0escxv.l9j0dhe7.du4w35lb.j83agx80.g5gj957u.rj1gh0hx.buofh1pr.hpfvmrgz.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.sn0e7ne5.f6rbj1fe.l3ldwz01 {
-    display: none!important;
+
+.ns9esd28.tqkqlopc.du4w35lb,
+.f4tghd1a > div > div {
+	color: var(--placeholder-text);
 }
+.stjgntxs > .agkhgkm8,
+.f4tghd1a {
+	transition: color 0.3s ease;
+	color: transparent;
+}
+.stjgntxs > .agkhgkm8:hover,
+.f4tghd1a:hover {
+	color: var(--scroll-thumb);
+}
+::-webkit-scrollbar-thumb {
+	border: 4px solid transparent;
+	background-clip: content-box;
+	box-shadow: inset 0 0 0 10px;
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--messenger-card-background);
+}
+/* - - - */
+
+/* Fix textbox glitches */
+.hedjyaoh {
+	transform: none !important;
+	margin-left: 96px;
+}
+.qiw3t3sk {
+	transform: none !important;
+	margin-left: 0;
+}
+.orhb3f3m {
+	transition: margin-left 0.1s ease-in-out;
+}
+.thccjwpm {
+	width: 100%;
+}
+/* - - - */
+
+/* Hide/Show users freinds */
+div[role="navigation"] {
+	transition: width 0.5s;
+}
+.zeroWidth {
+	width: 0px !important;
+}
+/* - - - */
+
+/* Search result panel */
+.j34wkznp.qp9yad78.pmk7jnqg.kr520xx4[style="transform: translate(0px, 56px); width: 108px;"] {
+	width: 100% !important;
+	max-width: 360px;
+}
+/* - - - */
