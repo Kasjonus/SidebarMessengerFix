@@ -7,12 +7,11 @@ Extension to improve the appearance of the sidebar Facebook Messenger™
 2. Open or refresh http://www.messenger.com page
 3. That's it!
 
-### Attention
-> If you want to use a dark theme, you need a browser that supports "Force Dark Pages", currently only Opera GX supports it. To activate it, open messenger.com manually, and then select the Enforce Dark Theme option from the context menu.
-
+### Dark Mode support
+> If you want to use a dark theme, click button in left bottom corner.
 ## Build instructions
  - Test operating system: Windows 10
- - Test browser: Opera GX, Opera Beta
+ - Test browser: Opera GX, Opera
 
 ### Use:
 1. Download the extension files from git
@@ -26,4 +25,4 @@ Extension to improve the appearance of the sidebar Facebook Messenger™
  - 0.3.0 - Add scrollbar style
 
 ## Privacy policy
-"Fix for sidebar Facebook Messsenger™" does not share any user data or device information with anyone. It uses a simple script that selects a style based on the options for Force Dark Pages
+"Fix for sidebar Facebook Messsenger™" does not share any user data or device information with anyone.
