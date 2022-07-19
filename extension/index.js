@@ -4,7 +4,14 @@ document.addEventListener("readystatechange", () => {
 		loadCSS("css/DefaultFix");
 
 		chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
-			response.theme === "dark" && loadCSS("css/DarkSkin");
+			if (response.theme === "dark") {
+				if (response.gx !== null) {
+					loadCSS("css/GXSkin");
+					document.documentElement.style = response.gx;
+				} else {
+					loadCSS("css/DarkSkin");
+				}
+			}
 		});
 
 		var checkExist = setInterval(function () {
@@ -15,13 +22,14 @@ document.addEventListener("readystatechange", () => {
 					data-visualcompletion="css-img"
 					class="hu5pjgll lzf7d6o1"
 					style="
-						background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/oq_FJcM-f8I.png');
-						background-position: 0px -977px;
+						background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yT/r/Q8CfqKxqizP.png');
+						background-position: 0px -335px;
 						background-size: auto;
 						width: 20px;
 						height: 20px;
 						background-repeat: no-repeat;
 						display: inline-block;
+						margin: auto;
 					"
 				></i>
 				`;
@@ -62,9 +70,14 @@ function unloadCSS(file) {
 function switchTheme() {
 	chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
 		if (response.theme === "dark") {
-			unloadCSS("css/DarkSkin");
+			unloadCSS(response.gx !== null ? "css/GXSkin" : "css/DarkSkin");
 		} else {
-			loadCSS("css/DarkSkin");
+			if (response.gx !== null) {
+				loadCSS("css/GXSkin");
+				document.documentElement.style = response.gx;
+			} else {
+				loadCSS("css/DarkSkin");
+			}
 		}
 
 		chrome.runtime.sendMessage({ mode: "saveTheme", theme: response.theme === "dark" ? "light" : "dark" });
