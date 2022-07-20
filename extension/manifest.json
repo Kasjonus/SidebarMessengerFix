@@ -12,7 +12,7 @@
 		"48": "icons/icon48.png",
 		"128": "icons/icon128.png"
 	},
-	"permissions": ["*://www.messenger.com/*", "*://pinboard.opera.com/*", "storage"],
+	"permissions": ["*://www.messenger.com/*", "palette", "storage"],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": false
@@ -23,13 +23,7 @@
 			"run_at": "document_start",
 			"js": ["index.js"],
 			"all_frames": true
-		},
-		{
-			"matches": ["*://pinboard.opera.com/*"],
-			"run_at": "document_start",
-			"js": ["theme.js"],
-			"all_frames": true
 		}
 	],
-	"web_accessible_resources": ["index.js", "theme.js", "background.js", "css/DefaultFix.css", "css/DarkSkin.css", "css/GXSkin.css"]
+	"web_accessible_resources": ["index.js", "background.js", "css/DefaultFix.css", "css/DarkSkin.css", "css/GXSkin.css"]
 }

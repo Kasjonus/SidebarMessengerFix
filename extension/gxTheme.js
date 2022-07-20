@@ -1,8 +1,5 @@
-let variables = "";
-let port = null;
-
-const getGxColors = async () => {
-	variables = "";
+const setGxColors = async () => {
+	let variables = "";
 
 	const setVariable = (name, value) => (variables += `--gx-${name}:${value};`);
 	const getColor = (name, opacity = 1) =>
@@ -71,48 +68,14 @@ const getGxColors = async () => {
 	const separatorColor = await getColor(isDarkTheme ? "gx_no_32" : "gx_no_80");
 	setVariable("separator-color", separatorColor);
 
-	port && port.postMessage({ mode: "loadGXTheme", gx: variables });
+	return variables;
 };
 
-if (!opr.palette.onPaletteChanged.hasListener(getGxColors)) {
-	getGxColors();
-	opr.palette.onPaletteChanged.addListener(getGxColors);
-}
-
-chrome.runtime.onConnect.addListener((_port) => {
-	port = _port;
-});
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-	const sendAndLog = (data) => {
-		sendResponse(data);
-		console.log(message.mode, data);
-	};
-
-	switch (message.mode) {
-		case "getTheme":
-			try {
-				const theme = localStorage.getItem("theme");
-				if (theme === null) {
-					localStorage.setItem("theme", "light");
-				}
-				sendAndLog({ result: 200, theme: theme || "light", gx: variables });
-			} catch (error) {
-				sendAndLog({ result: 500, error: error });
-			}
-			break;
-		case "saveTheme":
-			try {
-				localStorage.setItem("theme", message.theme);
-				sendAndLog({ result: 200, theme: message.theme });
-			} catch (error) {
-				sendAndLog({ result: 500, error: error });
-			}
-
-			break;
-
-		default:
-			sendAndLog({ result: 400, error: "invalid function" });
-			break;
+export const setPaletteColors = (isGx) => {
+	if (isGx) {
+		setGxColors();
+		if (!opr.palette.onPaletteChanged.hasListener(setGxColors)) {
+			opr.palette.onPaletteChanged.addListener(setGxColors);
+		}
 	}
-});
+};

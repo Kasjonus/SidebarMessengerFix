@@ -1,3 +1,11 @@
+var port = chrome.runtime.connect({ name: "themeLoader" });
+port.onMessage.addListener(function (message, sender) {
+	console.log(message, sender);
+	if (message.mode === "loadGXTheme") {
+		document.documentElement.style = message.gx;
+	}
+});
+
 document.addEventListener("readystatechange", () => {
 	if (document.readyState === "interactive") {
 		document.body.style.backgroundColor = "#242526";
@@ -6,8 +14,8 @@ document.addEventListener("readystatechange", () => {
 		chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
 			if (response.theme === "dark") {
 				if (response.gx !== null) {
-					loadCSS("css/GXSkin");
 					document.documentElement.style = response.gx;
+					loadCSS("css/GXSkin");
 				} else {
 					loadCSS("css/DarkSkin");
 				}
@@ -73,8 +81,8 @@ function switchTheme() {
 			unloadCSS(response.gx !== null ? "css/GXSkin" : "css/DarkSkin");
 		} else {
 			if (response.gx !== null) {
-				loadCSS("css/GXSkin");
 				document.documentElement.style = response.gx;
+				loadCSS("css/GXSkin");
 			} else {
 				loadCSS("css/DarkSkin");
 			}
