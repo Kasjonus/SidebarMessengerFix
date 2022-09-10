@@ -1,10 +1,10 @@
-/* Hide ad in left bottom corner and add switch theme button */
-.switchTheme {
-	cursor: pointer;
+:root {
+	--gx-highlight-color: rgb(0, 132, 255);
 }
 
-.switchTheme:hover {
-	background-color: var(--hover-overlay);
+/* Hide ad in left bottom corner */
+div[role="navigation"] > div > div div.f5ap8yob.f5ap8yob {
+	display: none !important;
 }
 /* - - - */
 
@@ -50,13 +50,35 @@
 /* - - - */
 
 /* Hide/Show users freinds */
-div[role="navigation"] {
-	/*position: absolute;*/
-	transition: width 0.5s;
+@media (max-width: 899px) {
+	div[role="navigation"] {
+		position: absolute;
+		transition: transform 0.25s;
+	}
+	.zeroWidth {
+		transform: translate(-100%, 0);
+	}
+	.fullWidth {
+		width: 260px !important;
+	}
+
+	div[role="navigation"] > div > div div.pytsy3co.alzwoclg.cqf1kptm.cgu29s5g.lq84ybu9.hf30pyar {
+		margin-top: 54px;
+	}
+
+	div[role="navigation"] > div > div div.bdao358l.om3e55n1.g4tp4svg.r227ecj6.gt60zsk1.rj2hsocd.f9xcifuu {
+		position: absolute;
+	}
+
+	input[dir="ltr"]:not(:focus) {
+		width: 24px;
+	}
+
+	input[dir="ltr"]::placeholder {
+		color: transparent;
+	}
 }
-.zeroWidth {
-	width: 0px !important;
-}
+
 /* - - - */
 
 /* Button */
@@ -72,10 +94,13 @@ div.g0mhvs5p.g0mhvs5p {
 }
 /* - - - */
 
+/* GX accent color */
 div[style="background-color: rgb(0, 132, 255);"] {
 	background-color: var(--gx-highlight-color) !important;
 }
 
-path[fill="#0084ff"], svg[fill="#0084ff"] {
+path[fill="#0084ff"],
+svg[fill="#0084ff"] {
 	fill: var(--gx-highlight-color) !important;
 }
+/* - - - */
