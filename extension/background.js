@@ -18,8 +18,6 @@ const isGx = async () => {
 };
 
 const getGxColors = async () => {
-	const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
 	if (await isGx()) {
 		variables = "";
 
@@ -45,6 +43,8 @@ const getGxColors = async () => {
 				resolve(getLuminance() > 0.45);
 			});
 		});
+
+		let isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 		const accentColor = await getColor("gx_accent");
 		setVariable("accent-color", accentColor);
@@ -89,10 +89,10 @@ const getGxColors = async () => {
 		const separatorColor = await getColor(isDarkTheme ? "gx_no_32" : "gx_no_80");
 		setVariable("separator-color", separatorColor);
 
-		port && port.postMessage({ mode: "loadGXTheme", gx: variables, theme: isDarkTheme ? "dark" : "light", isDarkTheme });
+		port && port.postMessage({ mode: "loadGXTheme", gx: variables, isDarkTheme });
 	} else {
-		const theme = isDarkTheme ? "dark" : "light";
-		port && port.postMessage({ mode: "loadTheme", theme });
+		let isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		port && port.postMessage({ mode: "loadTheme", isDarkTheme });
 	}
 };
 
@@ -114,9 +114,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	switch (message.mode) {
 		case "getTheme":
 			try {
-				const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+				let isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-				sendAndLog({ result: 200, theme: isDarkTheme ? "dark" : "light", gx: variables, isDarkTheme });
+				sendAndLog({ result: 200, isDarkTheme, gx: variables });
 			} catch (error) {
 				sendAndLog({ result: 500, error: error });
 			}

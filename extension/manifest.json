@@ -25,5 +25,5 @@
 			"all_frames": true
 		}
 	],
-	"web_accessible_resources": ["index.js", "background.js", "css/DefaultFix.css", "css/DarkSkin.css", "css/GXSkin.css"]
+	"web_accessible_resources": ["index.js", "background.js", "css/DefaultFix.css", "css/DarkSkin.css", "css/GXSkin.css", "css/DarkGXSkin.css"]
 }

@@ -3,9 +3,9 @@ port.onMessage.addListener(function (message, sender) {
 	console.log(message, sender);
 	if (message.mode === "loadGXTheme") {
 		document.documentElement.style = message.gx;
-		message.theme === "dark" ? loadCSS("css/GXSkin") : unloadCSS("css/GXSkin");
+		message.isDarkTheme ? loadCSS("css/DarkGXSkin") : unloadCSS("css/DarkGXSkin");
 	} else if (message.mode === "loadTheme") {
-		message.theme === "dark" ? loadCSS("css/DarkSkin") : unloadCSS("css/DarkSkin");
+		message.isDarkTheme ? loadCSS("css/DarkSkin") : unloadCSS("css/DarkSkin");
 	}
 });
 
@@ -17,10 +17,11 @@ document.addEventListener("readystatechange", () => {
 		chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
 			console.log(response);
 			if (response.gx !== "") {
+				loadCSS("css/GXSkin");
 				document.documentElement.style = response.gx;
-				response.theme === "dark" && loadCSS("css/GXSkin");
+				response.isDarkTheme && loadCSS("css/DarkGXSkin");
 			} else {
-				response.theme === "dark" && loadCSS("css/DarkSkin");
+				response.isDarkTheme && loadCSS("css/DarkSkin");
 			}
 		});
 
@@ -56,6 +57,7 @@ document.addEventListener("readystatechange", () => {
 });
 
 function loadCSS(file) {
+	if (document.querySelectorAll(`link[id="${file}"]`).length > 0) return;
 	var link = document.createElement("link");
 	link.href = chrome.extension.getURL(file + ".css");
 	link.id = file;
