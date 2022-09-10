@@ -12,7 +12,7 @@
 		"48": "icons/icon48.png",
 		"128": "icons/icon128.png"
 	},
-	"permissions": ["*://www.messenger.com/*", "storage"],
+	"permissions": ["*://www.messenger.com/*", "palette", "storage"],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": false
@@ -25,5 +25,5 @@
 			"all_frames": true
 		}
 	],
-	"web_accessible_resources": ["index.js", "background.js", "css/DefaultFix.css", "css/DarkSkin.css"]
+	"web_accessible_resources": ["index.js", "background.js", "css/DefaultFix.css", "css/DarkSkin.css", "css/GXSkin.css", "css/DarkGXSkin.css"]
 }
