@@ -66,6 +66,14 @@ div[role="navigation"] > div > div div.f5ap8yob.f5ap8yob {
 		position: absolute;
 	}
 
+	div.mfclru0v.alzwoclg.i85zmo3j > label {
+		pointer-events: none;
+	}
+
+	input[dir="ltr"] {
+		pointer-events: auto;
+	}
+
 	input[dir="ltr"]:not(:focus) {
 		width: 24px;
 	}
