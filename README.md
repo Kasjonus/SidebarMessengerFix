@@ -29,7 +29,7 @@ Extension to improve the appearance of the sidebar Facebook Messenger™
 -   0.1.1 - Update default css file
 -   0.2.0 - Add full dark mode support
 -   0.3.0 - Add scrollbar style
--   0.4.0 - Automatic detect theme based on browser theme (Opera/Opera GX)
+-   0.4.1 - Automatic detect theme based on browser theme (Opera/Opera GX)
 
 ## Privacy policy
 
