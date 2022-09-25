@@ -96,7 +96,7 @@ const getGxColors = async () => {
 	}
 };
 
-if (!opr.palette.onPaletteChanged.hasListener(getGxColors)) {
+if (window?.opr?.palette && !opr?.palette?.onPaletteChanged?.hasListener(getGxColors)) {
 	getGxColors();
 	opr.palette.onPaletteChanged.addListener(getGxColors);
 }
@@ -116,7 +116,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			try {
 				let isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-				sendAndLog({ result: 200, isDarkTheme, gx: variables });
+				sendAndLog({ result: 200, isDarkTheme, gx: window?.opr?.palette ? variables : localStorage.getItem("style") });
 			} catch (error) {
 				sendAndLog({ result: 500, error: error });
 			}

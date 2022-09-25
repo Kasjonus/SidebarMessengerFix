@@ -48,11 +48,13 @@ div[role="navigation"] > div > div div.f5ap8yob.f5ap8yob {
 /* Hide/Show users freinds */
 @media (max-width: 899px) {
 	div[role="navigation"] {
+		max-width: 80%;
+		height: 100%;
 		position: absolute;
 		transition: transform 0.25s;
 	}
 	.zeroWidth {
-		transform: translate(-100%, 0);
+		transform: translate(calc(-100% - 80px), 0);
 	}
 	.fullWidth {
 		width: 260px !important;

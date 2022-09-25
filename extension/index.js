@@ -45,11 +45,12 @@ document.addEventListener("readystatechange", () => {
 
 		let leftPanelState = 1;
 		document.addEventListener("mousemove", (e) => {
+			const navElement = document.querySelector(`div[role="navigation"]`);
 			if (e.clientX < 10 && leftPanelState === 0) {
-				document.querySelector(`div[role="navigation"]`).classList.remove("zeroWidth");
+				navElement.classList.remove("zeroWidth");
 				leftPanelState = 1;
-			} else if (!blockHidePanel && window.innerWidth < 900 && e.clientX > 122 && leftPanelState === 1) {
-				document.querySelector(`div[role="navigation"]`).classList.add("zeroWidth");
+			} else if (!blockHidePanel && window.innerWidth < 900 && e.clientX > navElement.clientWidth && leftPanelState === 1) {
+				navElement.classList.add("zeroWidth");
 				leftPanelState = 0;
 			}
 		});
