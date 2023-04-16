@@ -1,5 +1,5 @@
 /* Hide ad in left bottom corner */
-div[role="navigation"] > div > div div.f5ap8yob.f5ap8yob {
+div[role="navigation"] > div > div:last-child div.x2bj2ny.x13vifvy > div:last-child {
 	display: none !important;
 }
 /* - - - */
@@ -28,7 +28,7 @@ div[role="navigation"] > div > div div.f5ap8yob.f5ap8yob {
 }
 /* - - - */
 
-/* Fix textbox glitches */
+/* Fix textBox glitches */
 .hedjyaoh {
 	transform: none !important;
 	margin-left: 96px;
@@ -45,7 +45,7 @@ div[role="navigation"] > div > div div.f5ap8yob.f5ap8yob {
 }
 /* - - - */
 
-/* Hide/Show users freinds */
+/* Hide/Show users friends */
 @media (max-width: 899px) {
 	div[role="navigation"] {
 		max-width: 80%;
