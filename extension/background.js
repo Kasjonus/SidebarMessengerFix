@@ -1,3 +1,9 @@
+let port = null;
+
+chrome.runtime.onConnect.addListener((_port) => {
+	port = _port;
+});
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	const sendAndLog = (data) => {
 		sendResponse(data);
@@ -7,11 +13,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	switch (message.mode) {
 		case "getTheme":
 			try {
-				const theme = localStorage.getItem("theme");
-				if (theme === null) {
-					localStorage.setItem("theme", "light");
-				}
-				sendAndLog({ result: 200, theme: theme || "light" });
+				chrome.storage.local.set({ ["style"]: "test zapisu" });
+				const localStyles = null; //await chrome.storage.local.get("style");
+
+				sendAndLog({ result: 200, localStyles: localStyles });
 			} catch (error) {
 				sendAndLog({ result: 500, error: error });
 			}
