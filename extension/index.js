@@ -1,3 +1,14 @@
+var port = chrome.runtime.connect({ name: "themeLoader" });
+port.onMessage.addListener(function (message, sender) {
+	console.log(message, sender);
+	if (message.mode === "loadGXTheme") {
+		document.documentElement.style = message.gx;
+		message.isDarkTheme ? loadCSS("css/DarkGXSkin") : unloadCSS("css/DarkGXSkin");
+	} else if (message.mode === "loadTheme") {
+		message.isDarkTheme ? loadCSS("css/DarkSkin") : unloadCSS("css/DarkSkin");
+	}
+});
+
 document.addEventListener("readystatechange", () => {
 	if (document.readyState === "interactive") {
 		document.body.style.backgroundColor = "#242526";
@@ -142,38 +153,32 @@ document.addEventListener("readystatechange", () => {
 			// }
 		});
 
+		let blockHidePanel = false;
+
 		var checkExist = setInterval(function () {
-			if (document.querySelectorAll(".hybvsw6c > .rj1gh0hx").length) {
-				document.querySelector(".hybvsw6c > .rj1gh0hx").classList.add("switchTheme");
-				document.querySelector(".switchTheme").innerHTML = `
-				<i
-					data-visualcompletion="css-img"
-					class="hu5pjgll lzf7d6o1"
-					style="
-						background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/oq_FJcM-f8I.png');
-						background-position: 0px -977px;
-						background-size: auto;
-						width: 20px;
-						height: 20px;
-						background-repeat: no-repeat;
-						display: inline-block;
-					"
-				></i>
-				`;
-				document.querySelector(".switchTheme").addEventListener("click", () => {
-					switchTheme();
-				});
-				clearInterval(checkExist);
-			}
+			if (!document.querySelector(`input[dir="ltr"]`)) return;
+
+			document.querySelector(`input[dir="ltr"]`).addEventListener("focus", () => {
+				document.querySelector(`div[role="navigation"]`).classList.add("fullWidth");
+				blockHidePanel = true;
+			});
+
+			document.querySelector(`input[dir="ltr"]`).addEventListener("blur", () => {
+				document.querySelector(`div[role="navigation"]`).classList.remove("fullWidth");
+				blockHidePanel = false;
+			});
+
+			clearInterval(checkExist);
 		}, 100);
 
 		let leftPanelState = 1;
 		document.addEventListener("mousemove", (e) => {
+			const navElement = document.querySelector(`div[role="navigation"]`);
 			if (e.clientX < 10 && leftPanelState === 0) {
-				document.querySelector(`div[role="navigation"]`).classList.remove("zeroWidth");
+				navElement.classList.remove("zeroWidth");
 				leftPanelState = 1;
-			} else if (window.innerWidth < 900 && e.clientX > 122 && leftPanelState === 1) {
-				document.querySelector(`div[role="navigation"]`).classList.add("zeroWidth");
+			} else if (!blockHidePanel && window.innerWidth < 900 && e.clientX > navElement.clientWidth && leftPanelState === 1) {
+				navElement.classList.add("zeroWidth");
 				leftPanelState = 0;
 			}
 		});
@@ -181,6 +186,7 @@ document.addEventListener("readystatechange", () => {
 });
 
 function loadCSS(file) {
+	if (document.querySelectorAll(`link[id="${file}"]`).length > 0) return;
 	var link = document.createElement("link");
 	link.href = chrome.runtime.getURL(file + ".css");
 	link.id = file;
@@ -190,18 +196,6 @@ function loadCSS(file) {
 }
 
 function unloadCSS(file) {
-	var cssNode = document.getElementById(file);
-	cssNode && cssNode.parentNode.removeChild(cssNode);
-}
-
-function switchTheme() {
-	chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
-		if (response.theme === "dark") {
-			unloadCSS("css/DarkSkin");
-		} else {
-			loadCSS("css/DarkSkin");
-		}
-
-		chrome.runtime.sendMessage({ mode: "saveTheme", theme: response.theme === "dark" ? "light" : "dark" });
-	});
+	var cssNode = document.querySelectorAll(`link[id="${file}"]`);
+	cssNode.forEach((elm) => elm.parentNode.removeChild(elm));
 }

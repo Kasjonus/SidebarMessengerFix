@@ -1,0 +1,10 @@
+/* GX accent color */
+div[style="background-color: rgb(0, 132, 255);"] {
+	background-color: var(--gx-highlight-color) !important;
+}
+
+path[fill="#0084ff"],
+svg[fill="#0084ff"] {
+	fill: var(--gx-highlight-color) !important;
+}
+/* - - - */

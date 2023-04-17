@@ -1,10 +1,6 @@
-/* Hide ad in left bottom corner and add switch theme button */
-.switchTheme {
-	cursor: pointer;
-}
-
-.switchTheme:hover {
-	background-color: var(--hover-overlay);
+/* Hide ad in left bottom corner */
+div[role="navigation"] > div > div:last-child div.x2bj2ny.x13vifvy > div:last-child {
+	display: none !important;
 }
 /* - - - */
 
@@ -14,35 +10,25 @@
 }
 
 ::-webkit-scrollbar {
+	background-color: var(--messenger-card-background);
 	width: 16px;
 }
 
-.ns9esd28.tqkqlopc.du4w35lb,
-.f4tghd1a > div > div {
-	color: var(--placeholder-text);
+::-webkit-scrollbar-thumb:hover {
+	color: var(--gx-accent-color);
 }
-.stjgntxs > .agkhgkm8,
-.f4tghd1a {
-	transition: color 0.3s ease;
-	color: transparent;
-}
-.stjgntxs > .agkhgkm8:hover,
-.f4tghd1a:hover {
-	color: var(--scroll-thumb);
-}
+
 ::-webkit-scrollbar-thumb {
 	border: 4px solid transparent;
 	background-clip: content-box;
 	box-shadow: inset 0 0 0 10px;
 	border-radius: 8px;
-}
-
-::-webkit-scrollbar-track {
-	background-color: var(--messenger-card-background);
+	transition: all 0.5s;
+	color: var(--gx-highlight-color);
 }
 /* - - - */
 
-/* Fix textbox glitches */
+/* Fix textBox glitches */
 .hedjyaoh {
 	transform: none !important;
 	margin-left: 96px;
@@ -59,12 +45,51 @@
 }
 /* - - - */
 
-/* Hide/Show users freinds */
-div[role="navigation"] {
-	transition: width 0.5s;
+/* Hide/Show users friends */
+@media (max-width: 899px) {
+	div[role="navigation"] {
+		max-width: 80%;
+		height: 100%;
+		position: absolute;
+		transition: transform 0.25s;
+	}
+	.zeroWidth {
+		transform: translate(calc(-100% - 80px), 0);
+	}
+	.fullWidth {
+		width: 260px !important;
+	}
+
+	div[role="navigation"] > div > div div.pytsy3co.alzwoclg.cqf1kptm.cgu29s5g.lq84ybu9.hf30pyar {
+		margin-top: 54px;
+	}
+
+	div[role="navigation"] > div > div div.bdao358l.om3e55n1.g4tp4svg.r227ecj6.gt60zsk1.rj2hsocd.f9xcifuu {
+		position: absolute;
+	}
+
+	div.mfclru0v.alzwoclg.i85zmo3j > label {
+		pointer-events: none;
+	}
+
+	input[dir="ltr"] {
+		pointer-events: auto;
+	}
+
+	input[dir="ltr"]:not(:focus) {
+		width: 24px;
+	}
+
+	input[dir="ltr"]::placeholder {
+		color: transparent;
+	}
 }
-.zeroWidth {
-	width: 0px !important;
+
+/* - - - */
+
+/* Button */
+div.g0mhvs5p.g0mhvs5p {
+	width: 80px !important;
 }
 /* - - - */
 
@@ -72,5 +97,11 @@ div[role="navigation"] {
 .j34wkznp.qp9yad78.pmk7jnqg.kr520xx4[style="transform: translate(0px, 56px); width: 108px;"] {
 	width: 100% !important;
 	max-width: 360px;
+}
+/* - - - */
+
+/* Black icons */
+.g4fisb7v {
+	color: var(--primary-icon);
 }
 /* - - - */
