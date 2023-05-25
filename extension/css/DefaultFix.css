@@ -1,7 +1,7 @@
 /* Hide ad in left bottom corner */
-div[role="navigation"] > div > div:last-child div.x2bj2ny.x13vifvy > div:last-child {
+/* div[role="navigation"] > div > div:last-child div.x2bj2ny.x13vifvy > div:last-child {
 	display: none !important;
-}
+} */
 /* - - - */
 
 /* Better scrollbar */
@@ -44,6 +44,13 @@ div[role="navigation"] > div > div:last-child div.x2bj2ny.x13vifvy > div:last-ch
 	width: 100%;
 }
 /* - - - */
+
+/* Fix chats title on minimal view */
+@media (max-width: 899px) {
+	.x1sy10c2 {
+		display: none;
+	}
+}
 
 /* Hide/Show users friends */
 @media (max-width: 899px) {
@@ -101,7 +108,22 @@ div.g0mhvs5p.g0mhvs5p {
 /* - - - */
 
 /* Black icons */
-.g4fisb7v {
+.x1p6odiv {
 	color: var(--primary-icon);
+}
+.x1p6odiv > path {
+	fill: var(--primary-icon);
+}
+/* - - - */
+
+/* Black divider */
+.x1tciwvm {
+	border-top-color: var(--primary-icon);
+}
+/* - - - */
+
+/* White Search Button */
+form.x6s0dn4.xua58t2.x78zum5.x1y1aw1k.x1pi30zi.xwib8y2.x1swvt13 > div:last-child > div > div {
+	background-color: var(--messenger-card-background);
 }
 /* - - - */
