@@ -4,9 +4,9 @@ Extension to improve the appearance of the sidebar Facebook Messenger™
 
 ## Buy me a beer 🍺🍺🍺
 
-https://www.buymeacoffee.com/kasjonus
+### _Help Fund My Chrome Web Store Developer Account and mental stability ;)_
 
-Help Fund My Chrome Web Store Developer Account and mental stability ;)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/kasjonus)
 
 ## How to Use
 
