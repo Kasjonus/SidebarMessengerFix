@@ -1,4 +1,4 @@
-# SidebarMessegerFix ![Logo](https://github.com/Kasjonus/SidebarMessegerFix/raw/main/extension/icons/icon48.png "Logo")
+# SidebarMessegerFix ![Logo](./extension/icons/icon48.png "Logo")
 
 Extension to improve the appearance of the sidebar Facebook Messenger™
 
