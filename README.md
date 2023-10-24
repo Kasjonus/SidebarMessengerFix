@@ -2,6 +2,12 @@
 
 Extension to improve the appearance of the sidebar Facebook Messenger™
 
+## Buy me a beer 🍺🍺🍺
+
+https://www.buymeacoffee.com/kasjonus
+
+Help Fund My Chrome Web Store Developer Account and mental stability ;)
+
 ## How to Use
 
 1. Install the Extension on Opera addons (https://addons.opera.com/pl/extensions/details/fix-for-sidebar-facebook-messsengertm/)
