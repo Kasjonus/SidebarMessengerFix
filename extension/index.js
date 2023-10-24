@@ -234,7 +234,7 @@ document.addEventListener("readystatechange", () => {
 
 				themeController.loadListeners();
 			} else {
-				if (window.confirm("Fix for sidebar Facebook Messsenger™ Error\nIf you want to report your problem to developer, click OK")) {
+				if (window.confirm("Fix for sidebar Facebook Messenger™ Error\nIf you want to report your problem to developer, click OK")) {
 					window.open("https://github.com/Kasjonus/SidebarMessengerFix/issues", "_blank");
 				}
 			}

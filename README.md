@@ -38,7 +38,8 @@ Extension to improve the appearance of the sidebar Facebook Messenger™
 -   0.4.1 - Automatic detect theme based on browser theme (Opera/Opera GX)
 -   0.4.2 - Update styles for new Messenger functions
 -   0.4.3 - Update css files for new Messenger styles
+-   0.5.1 - Manifest v3 & Refactoring
 
 ## Privacy policy
 
-"Fix for sidebar Facebook Messsenger™" does not share any user data or device information with anyone.
+"Fix for sidebar Facebook Messenger™" does not share any user data or device information with anyone.
