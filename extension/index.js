@@ -14,6 +14,17 @@ document.addEventListener("readystatechange", () => {
 		document.body.style.backgroundColor = "#242526";
 		loadCSS("css/DefaultFix");
 
+		var checkAdExist = setInterval(function () {
+			const container = document.querySelector(`div[id=":ri:"]`);
+
+			if (!container) return;
+
+			const adParentChildren = container.parentElement.children;
+			adParentChildren[adParentChildren.length - 1].style.display = "none";
+
+			clearInterval(checkAdExist);
+		}, 100);
+
 		chrome.runtime.sendMessage({ mode: "getTheme" }, (response) => {
 			console.log(response);
 			if (response.gx !== "") {
