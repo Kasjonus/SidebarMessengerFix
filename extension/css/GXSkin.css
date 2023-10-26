@@ -1,10 +1,20 @@
 /* GX accent color */
-div[style="background-color: rgb(0, 132, 255);"] {
+div:has(div[role="grid"][aria-label])[style*="background-image"] {
+	background-image: unset !important;
 	background-color: var(--gx-highlight-color) !important;
 }
 
-path[fill="#0084ff"],
-svg[fill="#0084ff"] {
+div[style="background-color: rgb(10, 124, 255);"] {
+	background-color: var(--gx-highlight-color) !important;
+}
+
+path[fill],
+svg[fill] {
 	fill: var(--gx-highlight-color) !important;
 }
 /* - - - */
+
+:root,
+.__fb-light-mode {
+	--primary-icon: var(--gx-highlight-color) !important;
+}

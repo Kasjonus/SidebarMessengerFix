@@ -174,7 +174,7 @@ class FixController {
 			if (!container) return;
 
 			const adParentChildren = container.parentElement.children;
-			adParentChildren[adParentChildren.length - 1].style.display = "none";
+			adParentChildren[adParentChildren.length - 1].style.display = `none`;
 
 			clearInterval(checkAdExist);
 		}, 100);
