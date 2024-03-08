@@ -200,15 +200,25 @@ class FixController {
 
 	movePanel = () => {
 		let blockHidePanel = false;
-
 		let leftPanelState = 1;
+
 		document.addEventListener("mousemove", (e) => {
-			const navElement = document.querySelector(`div[role="navigation"]`);
+			const navElements = document.querySelectorAll(`div[role="navigation"]`);
+
+			let navigationWidth = 0;
+			for (const navElement of navElements) {
+				navigationWidth += navElement.clientWidth;
+			}
+
 			if (e.clientX < 10 && leftPanelState === 0) {
-				navElement.classList.remove("zeroWidth");
+				for (const navElement of navElements) {
+					navElement.classList.remove("zeroWidth");
+				}
 				leftPanelState = 1;
-			} else if (!blockHidePanel && window.innerWidth < 900 && e.clientX > navElement.clientWidth && leftPanelState === 1) {
-				navElement.classList.add("zeroWidth");
+			} else if (!blockHidePanel && window.innerWidth < 900 && e.clientX > navigationWidth && leftPanelState === 1) {
+				for (const navElement of navElements) {
+					navElement.classList.add("zeroWidth");
+				}
 				leftPanelState = 0;
 			}
 		});
